@@ -1,0 +1,15 @@
+runtime: "container"
+build:
+  dockerfile: "Dockerfile"
+  dockerBuildPath: "."
+startCommand:
+  type: "http"
+configSchema:
+  type: "object"
+  properties:
+    SPOTIFY_CLIENT_ID:
+      type: "string"
+      title: "Spotify Client ID"
+      description: "Your Spotify application client ID from https://developer.spotify.com/dashboard"
+  required:
+    - SPOTIFY_CLIENT_ID
