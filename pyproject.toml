@@ -1,17 +1,22 @@
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
+
 [project]
 name = "spotify-mcp"
 version = "1.0.0"
-description = "MCP server for Spotify integration"
-requires-python = ">=3.10"
+description = "MCP server for Spotify integration with PKCE authentication"
+readme = "README.md"
+requires-python = ">=3.12"
 dependencies = [
-    "mcp>=1.1.2",
+    "mcp>=1.15.0",
+    "smithery>=0.4.2",
     "spotipy>=2.24.0",
-    "python-dotenv>=1.0.0",
 ]
 
 [project.scripts]
-spotify-mcp = "spotify_mcp.server:main"
+dev = "smithery.cli.dev:main"
+playground = "smithery.cli.playground:main"
 
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+[tool.smithery]
+server = "spotify_mcp.server:create_server"
