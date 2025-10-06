@@ -1,0 +1,17 @@
+[project]
+name = "spotify-mcp"
+version = "1.0.0"
+description = "MCP server for Spotify integration"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.1.2",
+    "spotipy>=2.24.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+spotify-mcp = "spotify_mcp.server:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
